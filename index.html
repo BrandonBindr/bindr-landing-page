@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bindr.Cards | Match with Grails</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Stylized "B" Logo as Favicon -->
+    <link rel="icon" type="image/jpeg" href="watermarked_img_17449629821507150492.jpg">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#f97316', // Orange/Flame color
+                            600: '#ea580c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617; /* Slate 950 */
+            color: #f8fafc;
+        }
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #fb923c, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Hide scrollbar for the mockup */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/5 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="watermarked_img_17449629821507150492.jpg" alt="Bindr Logo" class="w-10 h-10 object-cover rounded-lg shadow-lg border border-white/10">
+                <span class="text-2xl font-bold tracking-tight">Bindr<span class="text-brand-500">.Cards</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-white transition-colors">How it Works</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+            </div>
+            <a href="#waitlist" class="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all border border-white/10 hover:border-white/30 backdrop-blur-md">
+                Join Beta
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden relative">
+        <!-- Background glow effects -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-500/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left Column: Copy & Email Form -->
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-sm font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                    Now accepting Beta signups
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Stop scrolling.<br>
+                    Start finding <span class="gradient-text">Heat.</span>
+                </h1>
+                
+                <p class="text-lg text-slate-400 mb-10 leading-relaxed max-w-lg">
+                    Bindr is the first visual discovery engine for trading card collectors. Swipe through high-end sports cards, Pokemon grails, and vintage slabs tailored exactly to your budget.
+                </p>
+                
+                <!-- Email Waitlist Form -->
+                <div id="waitlist" class="bg-white/5 border border-white/10 p-2 rounded-2xl flex flex-col sm:flex-row gap-2 max-w-md shadow-2xl backdrop-blur-sm">
+                    <div class="relative flex-grow">
+                        <i class="ph ph-envelope-simple absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                        <input type="email" placeholder="Enter your email address" class="w-full bg-transparent text-white placeholder-slate-500 pl-12 pr-4 py-3 sm:py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/50 transition-all">
+                    </div>
+                    <button class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 text-white font-semibold py-3 sm:py-4 px-8 rounded-xl shadow-lg shadow-brand-500/25 transition-all transform hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap">
+                        Get Early Access
+                    </button>
+                </div>
+                <p class="text-sm text-slate-500 mt-4 flex items-center gap-1">
+                    <i class="ph-fill ph-lock-key"></i> No spam. Unsubscribe anytime.
+                </p>
+            </div>
+
+            <!-- Right Column: Interactive App Mockup -->
+            <div class="relative mx-auto w-full max-w-[340px] lg:max-w-none flex justify-center lg:justify-end perspective-1000">
+                <!-- Phone Frame -->
+                <div class="w-[320px] h-[650px] bg-slate-900 border-[8px] border-slate-800 rounded-[3rem] shadow-2xl shadow-brand-500/20 overflow-hidden relative flex flex-col transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500">
+                    
+                    <!-- Dynamic Island / Notch -->
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-3xl z-20"></div>
+
+                    <!-- App Header -->
+                    <div class="flex justify-between items-center px-5 pt-10 pb-4 bg-slate-900/80 backdrop-blur-md border-b border-white/5 z-10">
+                        <i class="ph-fill ph-user-circle text-2xl text-slate-400"></i>
+                        <!-- Stylized B Logo in App UI -->
+                        <div class="flex items-center gap-1.5">
+                            <img src="watermarked_img_17449629821507150492.jpg" alt="Icon" class="w-6 h-6 object-cover rounded shadow border border-white/10">
+                            <span class="font-bold text-lg tracking-tight">Bindr</span>
+                        </div>
+                        <i class="ph-fill ph-faders text-2xl text-slate-400"></i>
+                    </div>
+
+                    <!-- Swipe Area -->
+                    <div class="flex-grow relative bg-slate-950 flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Background Card (Next in stack) -->
+                        <div class="absolute w-[280px] h-[400px] bg-slate-800 rounded-2xl border border-white/5 scale-95 -translate-y-4 opacity-50 transition-all"></div>
+                        
+                        <!-- Foreground Card (Active Swipe) -->
+                        <div class="relative w-[280px] h-[420px] bg-slate-800 rounded-2xl border border-white/10 shadow-xl overflow-hidden flex flex-col transform -rotate-2 hover:rotate-0 transition-all duration-300 cursor-grab active:cursor-grabbing group">
+                            
+                            <!-- Card Image (Placeholder for a Trading Card) -->
+                            <div class="h-3/4 w-full bg-slate-700 relative">
+                                <img src="https://placehold.co/600x800/1e293b/f8fafc?text=Charizard\n1st+Edition\nPSA+9" alt="Card Image" class="w-full h-full object-cover">
+                                <!-- Gradient overlay for text legibility -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                                
+                                <!-- Price Tag -->
+                                <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-full font-bold">
+                                    $1,250
+                                </div>
+                            </div>
+                            
+                            <!-- Card Details -->
+                            <div class="flex-grow bg-slate-900 p-4 flex flex-col justify-center">
+                                <h3 class="font-bold text-lg truncate">1999 Base Set Charizard</h3>
+                                <p class="text-sm text-slate-400">Holo Rare • PSA 9 Mint</p>
+                                
+                                <!-- Market Badges -->
+                                <div class="flex gap-2 mt-2">
+                                    <span class="text-[10px] uppercase tracking-wider font-bold bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded">TCGPlayer</span>
+                                    <span class="text-[10px] uppercase tracking-wider font-bold bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded">Trending</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Swipe Controls -->
+                    <div class="h-24 bg-slate-900 border-t border-white/5 flex items-center justify-center gap-6 px-6 pb-4">
+                        <button class="w-14 h-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-red-400 hover:bg-slate-700 hover:text-red-300 transition-colors shadow-lg">
+                            <i class="ph-bold ph-x text-2xl"></i>
+                        </button>
+                        <button class="w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-blue-400 hover:bg-slate-700 hover:text-blue-300 transition-colors shadow-lg">
+                            <i class="ph-bold ph-star text-xl"></i>
+                        </button>
+                        <button class="w-14 h-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-green-400 hover:bg-slate-700 hover:text-green-300 transition-colors shadow-lg">
+                            <i class="ph-bold ph-heart text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-slate-900/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4">A smarter way to hunt.</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Our proprietary algorithm learns your preferences in real-time, surfacing the exact cards you want across major marketplaces.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/20 text-orange-500 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-cards text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Curated Stacks</h3>
+                    <p class="text-slate-400 leading-relaxed">No more endless scrolling through raw searches. We aggregate listings from TCGPlayer and Fanatics into curated, swipeable stacks.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-500 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-brain text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Algorithm</h3>
+                    <p class="text-slate-400 leading-relaxed">Every swipe right trains our heuristic engine. The more you use Bindr, the more accurate and personalized your daily grails become.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/20 text-green-500 flex items-center justify-center mb-6">
+                        <i class="ph-fill ph-shopping-bag text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Direct Purchase</h3>
+                    <p class="text-slate-400 leading-relaxed">Match with a card you love? One tap takes you directly to the verified listing on the native marketplace to complete your purchase safely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Crucial for API approvals) -->
+    <footer class="py-12 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-white/10 pb-8 mb-8">
+                
+                <!-- Brand Anchor -->
+                <div class="flex items-center gap-3">
+                    <img src="watermarked_img_17449629821507150492.jpg" alt="Bindr Logo" class="w-8 h-8 object-cover rounded-md opacity-80 mix-blend-lighten grayscale">
+                    <span class="text-lg font-bold text-slate-400">Bindr App LLC</span>
+                </div>
+                
+                <!-- Compliance Text -->
+                <div class="text-sm text-slate-500 text-center md:text-left max-w-xl">
+                    Bindr is an independent discovery platform. We are not officially affiliated with, endorsed by, or partnered with TCGPlayer, Fanatics, or eBay Inc. All purchases are facilitated through third-party marketplaces.
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+                <p>&copy; 2024 Bindr App LLC. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
