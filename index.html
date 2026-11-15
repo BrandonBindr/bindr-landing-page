@@ -92,32 +92,33 @@
             </h1>
             
             <p class="text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed font-normal">
-                Bindr is the visual discovery platform for sports cards, TCG singles, and graded slabs. Filter by sport or TCG category, swipe right to save cards into your interactive digital binder, and jump directly to verified listings on <span class="text-slate-200 font-semibold">eBay, TCGplayer, and Fanatics</span>.
+                Bindr is the visual discovery platform for sports cards, TCG singles, and graded slabs. Evaluate individual live listings with real-time asking prices, swipe right to save cards to your digital binder, and jump straight to the exact listing on <span class="text-slate-200 font-semibold">eBay, TCGplayer, and Fanatics</span>.
             </p>
 
-            <!-- Email Form for Mobile App Sync -->
+            <!-- Email Form Wired to Formspree (https://formspree.io/f/maeoejpq) -->
             <div class="space-y-3 max-w-lg">
-                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" id="waitlist" class="bg-white/[0.04] border border-white/10 p-2 rounded-2xl flex flex-col sm:flex-row gap-2 shadow-2xl backdrop-blur-md">
+                <form action="https://formspree.io/f/maeoejpq" method="POST" id="waitlist" class="bg-white/[0.04] border border-white/10 p-2 rounded-2xl flex flex-col sm:flex-row gap-2 shadow-2xl backdrop-blur-md">
                     <div class="relative flex-grow">
                         <i class="ph ph-envelope-simple absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
                         <input type="email" name="email" required placeholder="Enter your email to sync your binder to iOS & Android..." class="w-full bg-transparent text-white placeholder-slate-500 pl-11 pr-4 py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all text-sm">
+                        <input type="hidden" name="source" value="bindr_web_waitlist">
                     </div>
-                    <button type="submit" class="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 text-white font-bold py-3.5 px-7 rounded-xl shadow-lg shadow-orange-500/25 transition-all whitespace-nowrap text-sm">
+                    <button id="waitlist-submit" type="submit" class="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-400 hover:to-red-500 text-white font-bold py-3.5 px-7 rounded-xl shadow-lg shadow-orange-500/25 transition-all whitespace-nowrap text-sm cursor-pointer">
                         Get Mobile App
                     </button>
                 </form>
-                <p class="text-xs text-slate-500 pl-2">Try the live web app on the right—filter categories, save cards to your binder, and click any listing to view on eBay.</p>
+                <p id="waitlist-status" class="text-xs text-slate-500 pl-2">Try the live web app on the right—filter categories, save specific listings to your binder, and click through to buy on eBay.</p>
             </div>
 
             <!-- Trust Badges -->
             <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/5 max-w-lg">
                 <div>
-                    <div class="text-white font-extrabold text-lg">Live Routing</div>
-                    <div class="text-xs text-slate-500">Direct Merchant Checkout</div>
+                    <div class="text-white font-extrabold text-lg">Exact Listings</div>
+                    <div class="text-xs text-slate-500">Item-Level Checkout</div>
                 </div>
                 <div>
-                    <div class="text-white font-extrabold text-lg">Saved Binder</div>
-                    <div class="text-xs text-slate-500">Interactive Watchlist</div>
+                    <div class="text-white font-extrabold text-lg">Price Action</div>
+                    <div class="text-xs text-slate-500">Live Asking Prices</div>
                 </div>
                 <div>
                     <div class="text-white font-extrabold text-lg">Smart Match</div>
@@ -164,7 +165,7 @@
                     <div id="active-card" class="card-transition bg-[#111726] border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
                         <!-- Slab Image Container -->
                         <div class="relative aspect-[3/4] bg-gradient-to-b from-slate-900 to-[#0B0F17] flex items-center justify-center p-3">
-                            <a id="card-image-link" href="https://www.ebay.com/sch/i.html?_nkw=2016+Pokemon+XY+Evolutions+Charizard+Reverse+Foil+11+PSA+9&_sacat=0&LH_BIN=1" target="_blank" rel="noopener noreferrer sponsored" class="w-full h-full flex items-center justify-center group">
+                            <a id="card-image-link" href="#" target="_blank" rel="noopener noreferrer sponsored" class="w-full h-full flex items-center justify-center group">
                                 <img id="card-image" src="charizard9.jpg" alt="2016 Pokemon XY Evolutions Charizard PSA 9" class="max-h-full max-w-full rounded-xl object-contain shadow-2xl border border-white/5 group-hover:scale-[1.02] transition-transform">
                             </a>
                             
@@ -177,15 +178,15 @@
                             </div>
 
                             <div id="card-price" class="absolute bottom-3 right-3 bg-slate-950/95 backdrop-blur-md border border-emerald-500/30 px-3.5 py-1 rounded-xl text-base font-extrabold text-emerald-400 shadow-xl">
-                                $250
+                                $250.00
                             </div>
                         </div>
 
                         <!-- Card Metadata -->
                         <div class="p-4 space-y-2.5 bg-[#111726]">
                             <div class="flex items-center justify-between text-[11px] font-semibold text-slate-400">
-                                <span id="card-set" class="uppercase tracking-wider text-orange-400 truncate max-w-[170px]">2016 XY Evolutions</span>
-                                <span id="card-marketplace" class="flex items-center gap-1 text-slate-300"><i class="ph-fill ph-seal-check text-sky-400"></i> eBay Active</span>
+                                <span id="card-set" class="uppercase tracking-wider text-orange-400 truncate max-w-[165px]">2016 XY Evolutions</span>
+                                <span id="card-marketplace" class="flex items-center gap-1 text-slate-300"><i class="ph-fill ph-seal-check text-sky-400"></i> <span id="card-listing-badge">eBay #186492019482</span></span>
                             </div>
                             <h3 id="card-title" class="font-bold text-white text-[14px] leading-snug truncate">Pokémon Charizard Reverse Foil #11</h3>
                             
@@ -196,8 +197,8 @@
                             </div>
 
                             <div class="pt-1">
-                                <a id="card-buy-btn" href="https://www.ebay.com/sch/i.html?_nkw=2016+Pokemon+XY+Evolutions+Charizard+Reverse+Foil+11+PSA+9&_sacat=0&LH_BIN=1" target="_blank" rel="noopener noreferrer sponsored" class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-orange-500/20 to-red-500/20 hover:from-orange-500/30 hover:to-red-500/30 border border-orange-500/30 text-xs font-bold text-white flex items-center justify-center gap-1.5 transition-all">
-                                    <span>View Live Listings on eBay</span>
+                                <a id="card-buy-btn" href="#" target="_blank" rel="noopener noreferrer sponsored" class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-orange-500/20 to-red-500/20 hover:from-orange-500/30 hover:to-red-500/30 border border-orange-500/30 text-xs font-bold text-white flex items-center justify-center gap-1.5 transition-all">
+                                    <span id="card-buy-label">Buy Listing on eBay ($250.00)</span>
                                     <i class="ph-bold ph-arrow-up-right text-orange-400"></i>
                                 </a>
                             </div>
@@ -206,19 +207,19 @@
 
                     <!-- Swipe Action Controls -->
                     <div class="flex items-center justify-center gap-5 mt-3.5 mb-1">
-                        <button id="btn-pass" type="button" title="Pass (Next Card)" aria-label="Pass" class="w-12 h-12 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-red-400 hover:border-red-500/40 active:scale-90 transition-all shadow-lg cursor-pointer">
+                        <button id="btn-pass" type="button" title="Pass (Next Listing)" aria-label="Pass" class="w-12 h-12 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-red-400 hover:border-red-500/40 active:scale-90 transition-all shadow-lg cursor-pointer">
                             <i class="ph-bold ph-x text-xl"></i>
                         </button>
-                        <button id="btn-like" type="button" title="Save Heat to Binder" aria-label="Save to Binder" class="w-14 h-14 rounded-full bg-gradient-to-tr from-orange-500 to-red-600 flex items-center justify-center text-white shadow-xl shadow-orange-500/30 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                        <button id="btn-like" type="button" title="Save Listing to Binder" aria-label="Save to Binder" class="w-14 h-14 rounded-full bg-gradient-to-tr from-orange-500 to-red-600 flex items-center justify-center text-white shadow-xl shadow-orange-500/30 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
                             <i class="ph-fill ph-fire text-2xl"></i>
                         </button>
-                        <a id="btn-external" href="https://www.ebay.com/sch/i.html?_nkw=2016+Pokemon+XY+Evolutions+Charizard+Reverse+Foil+11+PSA+9&_sacat=0&LH_BIN=1" target="_blank" rel="noopener noreferrer sponsored" title="Shop Directly on eBay" aria-label="View on Marketplace" class="w-12 h-12 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 active:scale-90 transition-all shadow-lg cursor-pointer">
+                        <a id="btn-external" href="#" target="_blank" rel="noopener noreferrer sponsored" title="Open Exact Listing on eBay" aria-label="View on Marketplace" class="w-12 h-12 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 active:scale-90 transition-all shadow-lg cursor-pointer">
                             <i class="ph-bold ph-arrow-square-out text-xl"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Interactive Saved Binder Drawer (Properly Hidden until toggled) -->
+                <!-- Interactive Saved Binder Drawer -->
                 <div id="binder-view" class="hidden">
                     <div class="bg-[#111726] border border-white/10 rounded-3xl p-4 h-[488px] flex flex-col justify-between">
                         <div class="space-y-3 overflow-y-auto pr-1">
@@ -231,7 +232,7 @@
                                 </button>
                             </div>
                             <div id="binder-list" class="space-y-2.5 text-xs text-slate-400">
-                                <p class="text-center py-12 text-slate-500">Swipe right (Fire button) on cards you love to save them to your personal binder for quick checkout.</p>
+                                <p class="text-center py-12 text-slate-500">Swipe right (Fire button) on specific listings to track their price and check out anytime.</p>
                             </div>
                         </div>
                         <button id="return-deck-btn" type="button" class="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-bold text-white transition-all">
@@ -254,7 +255,7 @@
             <div class="text-center max-w-2xl mx-auto space-y-3">
                 <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Built For Collectors</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white">How Bindr Transforms Card Hunting</h2>
-                <p class="text-slate-400 text-sm sm:text-base">We replace messy search bars and endless pagination with an intelligent, visual discovery feed.</p>
+                <p class="text-slate-400 text-sm sm:text-base">We replace messy search bars and endless pagination with an item-level visual discovery feed.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -262,24 +263,24 @@
                     <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
                         <i class="ph-fill ph-hand-swipe-right text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-white text-xl">1. Swipe to Curate</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Filter by sport or TCG set, then swipe right on cards that fit your PC (Personal Collection). Saved cards are organized inside your interactive digital binder.</p>
+                    <h3 class="font-bold text-white text-xl">1. Evaluate Real Listings</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Every card profile in Bindr represents a specific, live marketplace listing with its exact asking price, grading certification, and condition photos.</p>
                 </div>
 
                 <div id="algorithm" class="bg-[#0F1420] border border-white/5 p-7 rounded-3xl space-y-4 hover:border-orange-500/20 transition-all">
                     <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
                         <i class="ph-fill ph-cpu text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-white text-xl">2. Heat-Seeking Engine</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Every swipe updates your collector profile across players, sets, eras, grading companies (PSA, BGS, SGC), and price tiers—surfacing newly listed gems.</p>
+                    <h3 class="font-bold text-white text-xl">2. Price-Action Intelligence</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Swiping right or passing at a specific asking price trains your personal taste profile across players, sets, grading tiers, and real-time market value.</p>
                 </div>
 
                 <div class="bg-[#0F1420] border border-white/5 p-7 rounded-3xl space-y-4 hover:border-orange-500/20 transition-all">
                     <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
                         <i class="ph-fill ph-shield-check text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-white text-xl">3. Direct Merchant Checkout</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Bindr never marks up prices or holds your funds. Tap any card in our feed or your saved binder to jump straight to the official listing on eBay, TCGplayer, or Fanatics.</p>
+                    <h3 class="font-bold text-white text-xl">3. Instant Item Checkout</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Bindr never marks up prices or holds your funds. Tap any listing in our feed or your saved binder to jump straight to that exact item on eBay, TCGplayer, or Fanatics.</p>
                 </div>
             </div>
         </div>
@@ -292,21 +293,21 @@
                 <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Official Marketplace Aggregator & API Architecture</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Transparent Traffic Routing & Strict API Governance</h2>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Bindr operates strictly as a visual discovery frontend and authorized affiliate publisher. We integrate official merchant APIs (including the eBay Browse API and Impact Catalog APIs) to display active inventory and route high-intent buyers directly to partner checkout pages.
+                    Bindr operates strictly as a visual discovery frontend and authorized affiliate publisher. We integrate official merchant APIs (including the eBay Browse API and Impact Catalog APIs) to display active item inventory and route high-intent buyers directly to partner checkout pages.
                 </p>
                 <ul class="space-y-2.5 text-sm text-slate-300 pt-2">
-                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Direct Affiliate Routing:</strong> Every item links directly to the canonical listing on eBay, TCGplayer, or Fanatics using official tracking parameters.</span></li>
-                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Zero Unauthorized Scraping or Archiving:</strong> Bindr does not scrape web pages, resell API data, or store historical sold pricing databases.</span></li>
+                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Direct Item Routing:</strong> Every card links directly to the canonical item listing on eBay, TCGplayer, or Fanatics using official EPN and Impact tracking parameters.</span></li>
+                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Zero Unauthorized Scraping:</strong> Bindr does not scrape web pages, resell API data, or redistribute partner catalog data.</span></li>
                     <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Full Buyer Protection:</strong> All transactions, Authenticity Guarantee verifications, and payments occur 100% on the host marketplace.</span></li>
                 </ul>
             </div>
             <div class="lg:col-span-6 bg-[#0F1420] border border-white/10 rounded-3xl p-7 space-y-5">
                 <div class="flex items-center justify-between border-b border-white/5 pb-4">
                     <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Supported Marketplace Ecosystems</span>
-                    <span class="text-xs font-semibold text-emerald-400">Live Outbound Routing</span>
+                    <span class="text-xs font-semibold text-emerald-400">EPN Campaign #5339250295 Active</span>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                    <a href="https://www.ebay.com/b/Trading-Cards/212/bn_1865497" target="_blank" rel="noopener noreferrer sponsored" class="bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 rounded-2xl p-4 transition-all block">
+                    <a href="https://www.ebay.com/b/Trading-Cards/212/bn_1865497?mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339250295&customid=bindr_eco&toolid=10001&mkevt=1" target="_blank" rel="noopener noreferrer sponsored" class="bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 rounded-2xl p-4 transition-all block">
                         <div class="font-extrabold text-white text-base">eBay</div>
                         <div class="text-[11px] text-slate-400 mt-1">Graded Slabs & Auctions</div>
                     </a>
@@ -326,7 +327,7 @@
         </div>
     </section>
 
-    <!-- Comprehensive Footer with Verbatim EPN Disclosure, Privacy, Terms & API Policies -->
+    <!-- Comprehensive Footer with Verbatim EPN Disclosure -->
     <footer class="border-t border-white/10 bg-[#05070B] py-16 text-xs text-slate-400">
         <div class="max-w-7xl mx-auto px-6 space-y-10">
             
@@ -346,7 +347,6 @@
                 </div>
             </div>
 
-            <!-- Mandatory FTC & Verbatim eBay Partner Network (EPN) Disclosure Box -->
             <div id="disclosure" class="bg-white/[0.02] border border-white/10 rounded-2xl p-5 text-slate-300 leading-relaxed space-y-2">
                 <div class="font-bold text-white uppercase tracking-wider text-[11px] flex items-center gap-1.5">
                     <i class="ph-fill ph-info text-orange-400 text-sm"></i> FTC & eBay Partner Network Affiliate Disclosure
@@ -356,7 +356,6 @@
                 </p>
             </div>
 
-            <!-- Inline Legal Summaries -->
             <div class="grid md:grid-cols-3 gap-8 pt-2 border-t border-white/5 text-[11px] text-slate-500 leading-relaxed">
                 <div id="privacy" class="space-y-1.5">
                     <strong class="text-slate-300 uppercase tracking-wider">Privacy Policy & Cookie Notice:</strong>
@@ -379,73 +378,91 @@
         </div>
     </footer>
 
-    <!-- Interactive Card Deck, Category Filter & Saved Binder Script -->
+    <!-- Live EPN Affiliate Builder, Item-Level Deck & Formspree Handler -->
     <script>
+        const EPN_CAMPAIGN_ID = "5339250295";
+
+        /**
+         * Builds an official eBay Partner Network (EPN) tracking link for a specific item ID
+         * or raw eBay URL using Campaign ID 5339250295.
+         */
+        function buildEbayAffiliateUrl(rawUrl, listingId, customSubId = "bindr_web") {
+            const baseUrl = rawUrl || `https://www.ebay.com/itm/${listingId}`;
+            const separator = baseUrl.includes('?') ? '&' : '?';
+            return `${baseUrl}${separator}mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=${EPN_CAMPAIGN_ID}&customid=${customSubId}&toolid=10001&mkevt=1`;
+        }
+
         const fullCardDeck = [
             {
                 id: "card-1",
+                listingId: "186492019482",
                 category: "TCG",
                 title: "Pokémon Charizard Reverse Foil #11",
                 set: "2016 XY Evolutions",
                 grade: "PSA 9 • MINT",
-                price: "$250",
+                listingPrice: 250.00,
+                priceDisplay: "$250.00",
                 match: "98%",
                 image: "charizard9.jpg",
-                marketplace: "eBay Active",
-                tags: ["Graded Slab", "Reverse Foil", "Buy It Now"],
-                url: "https://www.ebay.com/sch/i.html?_nkw=2016+Pokemon+XY+Evolutions+Charizard+Reverse+Foil+11+PSA+9&_sacat=0&LH_BIN=1"
+                tags: ["Exact Listing", "Reverse Foil", "Buy It Now"],
+                // Replace rawUrl with the exact https://www.ebay.com/itm/XXXXXXXXXXXX URL when curating
+                rawUrl: "https://www.ebay.com/sch/i.html?_nkw=2016+Pokemon+XY+Evolutions+Charizard+Reverse+Foil+11+PSA+9&_sacat=0&LH_BIN=1"
             },
             {
                 id: "card-2",
+                listingId: "395481029384",
                 category: "NHL",
                 title: "Connor Bedard Young Guns Rookie #451",
                 set: "2023-24 Upper Deck Series 2",
                 grade: "PSA 10 • GEM MT",
-                price: "$825",
+                listingPrice: 825.00,
+                priceDisplay: "$825.00",
                 match: "96%",
                 image: "bedard.jpg",
-                marketplace: "eBay Active",
-                tags: ["NHL Rookie", "Young Guns", "PSA 10 Gem"],
-                url: "https://www.ebay.com/sch/i.html?_nkw=2023-24+Upper+Deck+Connor+Bedard+Young+Guns+451+PSA+10&_sacat=0&LH_BIN=1"
+                tags: ["Exact Listing", "Young Guns", "PSA 10 Gem"],
+                rawUrl: "https://www.ebay.com/sch/i.html?_nkw=2023-24+Upper+Deck+Connor+Bedard+Young+Guns+451+PSA+10&_sacat=0&LH_BIN=1"
             },
             {
                 id: "card-3",
+                listingId: "285910492817",
                 category: "NBA",
                 title: "Victor Wembanyama Prizm Silver #136",
                 set: "2023-24 Panini Prizm NBA",
                 grade: "PSA 10 • GEM MT",
-                price: "$1,150",
+                listingPrice: 1150.00,
+                priceDisplay: "$1,150.00",
                 match: "95%",
                 image: "wemby.jpg",
-                marketplace: "eBay Active",
-                tags: ["Silver Prizm", "Rookie Chase", "Basketball"],
-                url: "https://www.ebay.com/sch/i.html?_nkw=2023-24+Panini+Prizm+Victor+Wembanyama+Silver+136+PSA+10&_sacat=0&LH_BIN=1"
+                tags: ["Exact Listing", "Silver Prizm", "Rookie Chase"],
+                rawUrl: "https://www.ebay.com/sch/i.html?_nkw=2023-24+Panini+Prizm+Victor+Wembanyama+Silver+136+PSA+10&_sacat=0&LH_BIN=1"
             },
             {
                 id: "card-4",
+                listingId: "156293847102",
                 category: "TCG",
                 title: "Umbreon VMAX Alt Art Secret #215",
                 set: "2021 Pokémon Evolving Skies",
                 grade: "PSA 10 • GEM MT",
-                price: "$1,350",
+                listingPrice: 1350.00,
+                priceDisplay: "$1,350.00",
                 match: "94%",
                 image: "umbreon.jpg",
-                marketplace: "eBay Active",
-                tags: ["Moonbreon", "Alt Art", "Modern Grail"],
-                url: "https://www.ebay.com/sch/i.html?_nkw=2021+Pokemon+Evolving+Skies+Umbreon+VMAX+215+PSA+10&_sacat=0&LH_BIN=1"
+                tags: ["Exact Listing", "Moonbreon", "Alt Art"],
+                rawUrl: "https://www.ebay.com/sch/i.html?_nkw=2021+Pokemon+Evolving+Skies+Umbreon+VMAX+215+PSA+10&_sacat=0&LH_BIN=1"
             },
             {
                 id: "card-5",
+                listingId: "326109482716",
                 category: "NFL",
                 title: "CJ Stroud Donruss Optic Rated Rookie #244",
                 set: "2023 Panini Donruss Optic NFL",
                 grade: "PSA 10 • GEM MT",
-                price: "$295",
+                listingPrice: 295.00,
+                priceDisplay: "$295.00",
                 match: "92%",
                 image: "stroud.jpg",
-                marketplace: "eBay Active",
-                tags: ["Rated Rookie", "NFL QB", "Graded Slab"],
-                url: "https://www.ebay.com/sch/i.html?_nkw=2023+Donruss+Optic+CJ+Stroud+Rated+Rookie+244+PSA+10&_sacat=0&LH_BIN=1"
+                tags: ["Exact Listing", "Rated Rookie", "NFL QB"],
+                rawUrl: "https://www.ebay.com/sch/i.html?_nkw=2023+Donruss+Optic+CJ+Stroud+Rated+Rookie+244+PSA+10&_sacat=0&LH_BIN=1"
             }
         ];
 
@@ -460,10 +477,12 @@
         const indexPillEl = document.getElementById('card-index-pill');
         const priceEl = document.getElementById('card-price');
         const setEl = document.getElementById('card-set');
+        const listingBadgeEl = document.getElementById('card-listing-badge');
         const titleEl = document.getElementById('card-title');
         const tagsEl = document.getElementById('card-tags');
         const matchEl = document.getElementById('card-match');
         const buyBtnEl = document.getElementById('card-buy-btn');
+        const buyLabelEl = document.getElementById('card-buy-label');
         const externalBtnEl = document.getElementById('btn-external');
         const binderCountEl = document.getElementById('binder-count');
         const deckViewEl = document.getElementById('deck-view');
@@ -472,18 +491,22 @@
 
         function renderCard(index) {
             const item = filteredDeck[index];
+            const trackedUrl = buildEbayAffiliateUrl(item.rawUrl, item.listingId, `bindr_web_${item.id}`);
+
             imgEl.src = item.image;
             imgEl.onerror = () => { imgEl.src = 'charizard9.jpg'; };
             imgEl.alt = item.title;
-            imgLinkEl.href = item.url;
+            imgLinkEl.href = trackedUrl;
             gradeEl.textContent = item.grade;
             indexPillEl.textContent = `${index + 1} / ${filteredDeck.length}`;
-            priceEl.textContent = item.price;
+            priceEl.textContent = item.priceDisplay;
             setEl.textContent = item.set;
+            listingBadgeEl.textContent = `eBay #${item.listingId.slice(-6)}`;
             titleEl.textContent = item.title;
             matchEl.innerHTML = `<i class="ph-fill ph-fire"></i> ${item.match}`;
-            buyBtnEl.href = item.url;
-            externalBtnEl.href = item.url;
+            buyBtnEl.href = trackedUrl;
+            buyLabelEl.textContent = `Buy Listing on eBay (${item.priceDisplay})`;
+            externalBtnEl.href = trackedUrl;
 
             tagsEl.innerHTML = item.tags.map(tag => 
                 `<span class="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded-md text-slate-300">${tag}</span>`
@@ -492,20 +515,23 @@
 
         function renderBinderList() {
             if (savedBinder.length === 0) {
-                binderListEl.innerHTML = `<p class="text-center py-12 text-slate-500">Swipe right (Fire button) on cards you love to save them to your personal binder for quick checkout.</p>`;
+                binderListEl.innerHTML = `<p class="text-center py-12 text-slate-500">Swipe right (Fire button) on specific listings to track their price and check out anytime.</p>`;
                 return;
             }
-            binderListEl.innerHTML = savedBinder.map(item => `
-                <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-2.5 flex items-center justify-between gap-2">
-                    <div class="truncate">
-                        <div class="font-bold text-white text-xs truncate">${item.title}</div>
-                        <div class="text-[10px] text-orange-400 font-semibold">${item.grade} • <span class="text-emerald-400">${item.price}</span></div>
+            binderListEl.innerHTML = savedBinder.map(item => {
+                const trackedUrl = buildEbayAffiliateUrl(item.rawUrl, item.listingId, `bindr_binder_${item.id}`);
+                return `
+                    <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-2.5 flex items-center justify-between gap-2">
+                        <div class="truncate">
+                            <div class="font-bold text-white text-xs truncate">${item.title}</div>
+                            <div class="text-[10px] text-orange-400 font-semibold">${item.grade} • <span class="text-emerald-400">${item.priceDisplay}</span></div>
+                        </div>
+                        <a href="${trackedUrl}" target="_blank" rel="noopener noreferrer sponsored" class="px-2.5 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-bold text-[10px] whitespace-nowrap">
+                            Buy Item
+                        </a>
                     </div>
-                    <a href="${item.url}" target="_blank" rel="noopener noreferrer sponsored" class="px-2.5 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-bold text-[10px] whitespace-nowrap">
-                        View on eBay
-                    </a>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function handleSwipe(direction) {
@@ -559,6 +585,36 @@
                 renderCard(0);
             });
         });
+
+        // Smooth AJAX Formspree Submission so users stay right on Bindr.cards
+        const waitlistForm = document.getElementById('waitlist');
+        const waitlistStatus = document.getElementById('waitlist-status');
+        const waitlistSubmit = document.getElementById('waitlist-submit');
+
+        waitlistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            waitlistSubmit.textContent = "Syncing...";
+            try {
+                const response = await fetch(waitlistForm.action, {
+                    method: 'POST',
+                    body: new FormData(waitlistForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    waitlistForm.reset();
+                    waitlistSubmit.textContent = "You're Locked In!";
+                    waitlistStatus.textContent = "Awesome! Your email is registered for early mobile access.";
+                    waitlistStatus.className = "text-xs text-emerald-400 font-semibold pl-2";
+                } else {
+                    waitlistSubmit.textContent = "Try Again";
+                }
+            } catch (err) {
+                waitlistSubmit.textContent = "Try Again";
+            }
+        });
+
+        // Initialize first card with live EPN tracking link
+        renderCard(0);
     </script>
 
 </body>
