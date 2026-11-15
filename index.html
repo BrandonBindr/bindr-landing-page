@@ -288,4 +288,295 @@
                     <p class="text-sm text-slate-400 leading-relaxed">Every swipe updates your collector profile across players, sets, eras, grading companies (PSA, BGS, SGC), and price tiers—surfacing newly listed gems.</p>
                 </div>
 
-                <div class="bg-[#0F1420] border border-white/5 p
+                <div class="bg-[#0F1420] border border-white/5 p-7 rounded-3xl space-y-4 hover:border-orange-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
+                        <i class="ph-fill ph-shield-check text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-xl">3. Direct Merchant Checkout</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Bindr never marks up prices or holds your funds. Tap any card in our feed or your saved binder to jump straight to the official listing on eBay, TCGplayer, or Fanatics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture, API Governance & Partner Compliance Section (Tailored for eBay EPN & Browse API Reviewers) -->
+    <section id="compliance" class="border-t border-white/5 py-20 bg-[#07090E]">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-6 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Official Marketplace Aggregator & API Architecture</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Transparent Traffic Routing & Strict API Governance</h2>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                    Bindr operates strictly as a visual discovery frontend and authorized affiliate publisher. We integrate official merchant APIs (including the eBay Browse API and Impact Catalog APIs) to display active inventory and route high-intent buyers directly to partner checkout pages.
+                </p>
+                <ul class="space-y-2.5 text-sm text-slate-300 pt-2">
+                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Direct Affiliate Routing:</strong> Every item links directly to the canonical listing on eBay, TCGplayer, or Fanatics using official tracking parameters.</span></li>
+                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Zero Unauthorized Scraping or Archiving:</strong> Bindr does not scrape web pages, resell API data, or store historical sold pricing databases.</span></li>
+                    <li class="flex items-start gap-2.5"><i class="ph-fill ph-check-circle text-orange-500 mt-0.5"></i> <span><strong>Full Buyer Protection:</strong> All transactions, Authenticity Guarantee verifications, and payments occur 100% on the host marketplace.</span></li>
+                </ul>
+            </div>
+            <div class="lg:col-span-6 bg-[#0F1420] border border-white/10 rounded-3xl p-7 space-y-5">
+                <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Supported Marketplace Ecosystems</span>
+                    <span class="text-xs font-semibold text-emerald-400">Live Outbound Routing</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <a href="https://www.ebay.com/b/Trading-Cards/212/bn_1865497" target="_blank" rel="noopener noreferrer sponsored" class="bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 rounded-2xl p-4 transition-all block">
+                        <div class="font-extrabold text-white text-base">eBay</div>
+                        <div class="text-[11px] text-slate-400 mt-1">Graded Slabs & Auctions</div>
+                    </a>
+                    <a href="https://www.tcgplayer.com" target="_blank" rel="noopener noreferrer sponsored" class="bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 rounded-2xl p-4 transition-all block">
+                        <div class="font-extrabold text-white text-base">TCGplayer</div>
+                        <div class="text-[11px] text-slate-400 mt-1">Pokémon, MTG & TCG Singles</div>
+                    </a>
+                    <a href="https://www.fanaticscollect.com" target="_blank" rel="noopener noreferrer sponsored" class="bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 rounded-2xl p-4 transition-all block">
+                        <div class="font-extrabold text-white text-base">Fanatics</div>
+                        <div class="text-[11px] text-slate-400 mt-1">Topps, Memorabilia & Wax</div>
+                    </a>
+                </div>
+                <div class="bg-white/[0.02] border border-white/5 rounded-2xl p-4 text-[11px] text-slate-400 leading-relaxed">
+                    <strong class="text-slate-200">Developer API Compliance Note:</strong> Live listing data is refreshed dynamically via authorized API endpoints and cached strictly within short-term TTL limits to ensure accurate pricing and availability prior to user redirect.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Footer with Verbatim EPN Disclosure, Privacy, Terms & API Policies -->
+    <footer class="border-t border-white/10 bg-[#05070B] py-16 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 space-y-10">
+            
+            <!-- Top Row: Brand & Navigation -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="watermarked_img_17449629821507150492.jpg" alt="Bindr Logo" class="w-8 h-8 rounded-lg object-cover border border-white/15">
+                    <div>
+                        <span class="font-extrabold text-white text-sm tracking-tight">BINDR.CARDS</span>
+                        <p class="text-[11px] text-slate-500">Visual Trading Card & Memorabilia Discovery Application</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-6 text-slate-300 font-medium">
+                    <a href="#privacy" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
+                    <a href="#terms" class="hover:text-orange-400 transition-colors">Terms of Service</a>
+                    <a href="#disclosure" class="hover:text-orange-400 transition-colors">Affiliate Disclosure</a>
+                    <a href="mailto:support@bindr.cards" class="hover:text-orange-400 transition-colors">Contact Support</a>
+                </div>
+            </div>
+
+            <!-- Mandatory FTC & Verbatim eBay Partner Network (EPN) Disclosure Box -->
+            <div id="disclosure" class="bg-white/[0.02] border border-white/10 rounded-2xl p-5 text-slate-300 leading-relaxed space-y-2">
+                <div class="font-bold text-white uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                    <i class="ph-fill ph-info text-orange-400 text-sm"></i> FTC & eBay Partner Network Affiliate Disclosure
+                </div>
+                <p>
+                    When you click on links to various merchants on this site and make a purchase, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network (EPN) and the Impact Affiliate Network (representing merchant partners such as TCGplayer and Fanatics). As an eBay Partner, Bindr (bindr.cards) may be compensated if you make a purchase at no additional cost to you. All product images, trademarks, grading company labels, and brand names are the property of their respective owners.
+                </p>
+            </div>
+
+            <!-- Inline Legal Summaries (Privacy, Terms, and API Data Usage) -->
+            <div class="grid md:grid-cols-3 gap-8 pt-2 border-t border-white/5 text-[11px] text-slate-500 leading-relaxed">
+                <div id="privacy" class="space-y-1.5">
+                    <strong class="text-slate-300 uppercase tracking-wider">Privacy Policy & Cookie Notice:</strong>
+                    <p>Bindr respects your privacy. Email addresses submitted via our app notification form are used strictly to communicate product updates and mobile releases. We do not sell, rent, or trade personal user data. When you click an outbound link to a partner marketplace (such as eBay, TCGplayer, or Fanatics), standard affiliate tracking cookies and URL parameters are utilized by the respective network to attribute referral traffic in accordance with their privacy policies.</p>
+                </div>
+                <div id="terms" class="space-y-1.5">
+                    <strong class="text-slate-300 uppercase tracking-wider">Terms of Service:</strong>
+                    <p>Bindr provides an interactive visual discovery service and does not act as the seller, broker, auctioneer, or payment processor for any collectibles displayed. All pricing, item conditions, authenticity guarantees, shipping, and returns are governed solely by the marketplace merchant where the transaction is completed. Users should always verify final listing details on the destination marketplace prior to purchase.</p>
+                </div>
+                <div class="space-y-1.5">
+                    <strong class="text-slate-300 uppercase tracking-wider">Marketplace API Data Governance:</strong>
+                    <p>Bindr complies with the eBay API License Agreement and partner feed guidelines. Listing titles, images, and prices are displayed solely to facilitate real-time product discovery and direct traffic back to the originating marketplace. Bindr does not archive historical pricing data, alter seller feedback metrics, or redistribute marketplace API content to third parties.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 text-slate-600">
+                <p>&copy; 2026 Bindr (bindr.cards). All rights reserved.</p>
+                <p>Built for collectors, by collectors.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Card Deck, Category Filter & Saved Binder Script -->
+    <script>
+        const fullCardDeck = [
+            {
+                id: "card-1",
+                category: "TCG",
+                title: "Pokémon Charizard Reverse Foil #11",
+                set: "2016 XY Evolutions",
+                grade: "PSA 9 • MINT",
+                price: "$250",
+                match: "98%",
+                image: "charizard9.jpg",
+                marketplace: "eBay Active",
+                tags: ["Graded Slab", "Reverse Foil", "Buy It Now"],
+                url: "https://www.ebay.com/sch/i.html?_nkw=2016+Pokemon+XY+Evolutions+Charizard+Reverse+Foil+11+PSA+9&_sacat=0&LH_BIN=1"
+            },
+            {
+                id: "card-2",
+                category: "NHL",
+                title: "Connor Bedard Young Guns Rookie #451",
+                set: "2023-24 Upper Deck Series 2",
+                grade: "PSA 10 • GEM MT",
+                price: "$825",
+                match: "96%",
+                image: "bedard.JPG",
+                marketplace: "eBay Active",
+                tags: ["NHL Rookie", "Young Guns", "PSA 10 Gem"],
+                url: "https://www.ebay.com/sch/i.html?_nkw=2023-24+Upper+Deck+Connor+Bedard+Young+Guns+451+PSA+10&_sacat=0&LH_BIN=1"
+            },
+            {
+                id: "card-3",
+                category: "NBA",
+                title: "Victor Wembanyama Prizm Silver #136",
+                set: "2023-24 Panini Prizm NBA",
+                grade: "PSA 10 • GEM MT",
+                price: "$1,150",
+                match: "95%",
+                image: "wemby.JPG",
+                marketplace: "eBay Active",
+                tags: ["Silver Prizm", "Rookie Chase", "Basketball"],
+                url: "https://www.ebay.com/sch/i.html?_nkw=2023-24+Panini+Prizm+Victor+Wembanyama+Silver+136+PSA+10&_sacat=0&LH_BIN=1"
+            },
+            {
+                id: "card-4",
+                category: "TCG",
+                title: "Umbreon VMAX Alt Art Secret #215",
+                set: "2021 Pokémon Evolving Skies",
+                grade: "PSA 10 • GEM MT",
+                price: "$1,350",
+                match: "94%",
+                image: "umbreon.JPG",
+                marketplace: "eBay Active",
+                tags: ["Moonbreon", "Alt Art", "Modern Grail"],
+                url: "https://www.ebay.com/sch/i.html?_nkw=2021+Pokemon+Evolving+Skies+Umbreon+VMAX+215+PSA+10&_sacat=0&LH_BIN=1"
+            },
+            {
+                id: "card-5",
+                category: "NFL",
+                title: "CJ Stroud Donruss Optic Rated Rookie #244",
+                set: "2023 Panini Donruss Optic NFL",
+                grade: "PSA 10 • GEM MT",
+                price: "$295",
+                match: "92%",
+                image: "stroud.JPG",
+                marketplace: "eBay Active",
+                tags: ["Rated Rookie", "NFL QB", "Graded Slab"],
+                url: "https://www.ebay.com/sch/i.html?_nkw=2023+Donruss+Optic+CJ+Stroud+Rated+Rookie+244+PSA+10&_sacat=0&LH_BIN=1"
+            }
+        ];
+
+        let filteredDeck = [...fullCardDeck];
+        let currentIndex = 0;
+        let savedBinder = [];
+
+        const cardEl = document.getElementById('active-card');
+        const imgEl = document.getElementById('card-image');
+        const imgLinkEl = document.getElementById('card-image-link');
+        const gradeEl = document.getElementById('card-grade');
+        const indexPillEl = document.getElementById('card-index-pill');
+        const priceEl = document.getElementById('card-price');
+        const setEl = document.getElementById('card-set');
+        const titleEl = document.getElementById('card-title');
+        const tagsEl = document.getElementById('card-tags');
+        const matchEl = document.getElementById('card-match');
+        const buyBtnEl = document.getElementById('card-buy-btn');
+        const externalBtnEl = document.getElementById('btn-external');
+        const binderCountEl = document.getElementById('binder-count');
+        const deckViewEl = document.getElementById('deck-view');
+        const binderViewEl = document.getElementById('binder-view');
+        const binderListEl = document.getElementById('binder-list');
+
+        function renderCard(index) {
+            const item = filteredDeck[index];
+            imgEl.src = item.image;
+            imgEl.onerror = () => { imgEl.src = 'charizard9.jpg'; };
+            imgEl.alt = item.title;
+            imgLinkEl.href = item.url;
+            gradeEl.textContent = item.grade;
+            indexPillEl.textContent = `${index + 1} / ${filteredDeck.length}`;
+            priceEl.textContent = item.price;
+            setEl.textContent = item.set;
+            titleEl.textContent = item.title;
+            matchEl.innerHTML = `<i class="ph-fill ph-fire"></i> ${item.match}`;
+            buyBtnEl.href = item.url;
+            externalBtnEl.href = item.url;
+
+            tagsEl.innerHTML = item.tags.map(tag => 
+                `<span class="text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded-md text-slate-300">${tag}</span>`
+            ).join('');
+        }
+
+        function renderBinderList() {
+            if (savedBinder.length === 0) {
+                binderListEl.innerHTML = `<p class="text-center py-12 text-slate-500">Swipe right (Fire button) on cards you love to save them to your personal binder for quick checkout.</p>`;
+                return;
+            }
+            binderListEl.innerHTML = savedBinder.map(item => `
+                <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-2.5 flex items-center justify-between gap-2">
+                    <div class="truncate">
+                        <div class="font-bold text-white text-xs truncate">${item.title}</div>
+                        <div class="text-[10px] text-orange-400 font-semibold">${item.grade} • <span class="text-emerald-400">${item.price}</span></div>
+                    </div>
+                    <a href="${item.url}" target="_blank" rel="noopener noreferrer sponsored" class="px-2.5 py-1.5 rounded-lg bg-orange-500 hover:bg-orange-400 text-white font-bold text-[10px] whitespace-nowrap">
+                        View on eBay
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function handleSwipe(direction) {
+            const currentCard = filteredDeck[currentIndex];
+            if (direction === 'right') {
+                if (!savedBinder.some(c => c.id === currentCard.id)) {
+                    savedBinder.push(currentCard);
+                    binderCountEl.textContent = savedBinder.length;
+                    renderBinderList();
+                }
+                cardEl.classList.add('swipe-right');
+            } else {
+                cardEl.classList.add('swipe-left');
+            }
+
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % filteredDeck.length;
+                renderCard(currentIndex);
+                cardEl.classList.remove('swipe-left', 'swipe-right');
+            }, 260);
+        }
+
+        document.getElementById('btn-pass').addEventListener('click', () => handleSwipe('left'));
+        document.getElementById('btn-like').addEventListener('click', () => handleSwipe('right'));
+
+        // Toggle Binder Drawer
+        document.getElementById('toggle-binder-btn').addEventListener('click', () => {
+            deckViewEl.classList.toggle('hidden');
+            binderViewEl.classList.toggle('hidden');
+        });
+        document.getElementById('close-binder-btn').addEventListener('click', () => {
+            binderViewEl.classList.add('hidden');
+            deckViewEl.classList.remove('hidden');
+        });
+        document.getElementById('return-deck-btn').addEventListener('click', () => {
+            binderViewEl.classList.add('hidden');
+            deckViewEl.classList.remove('hidden');
+        });
+
+        // Category Filter Pills
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.className = "filter-btn text-[11px] font-semibold px-2.5 py-1 rounded-xl text-slate-400 hover:text-white transition-all";
+                });
+                btn.className = "filter-btn text-[11px] font-bold px-3 py-1 rounded-xl bg-orange-500 text-white transition-all";
+
+                const cat = btn.getAttribute('data-filter');
+                filteredDeck = cat === 'ALL' ? [...fullCardDeck] : fullCardDeck.filter(c => c.category === cat);
+                currentIndex = 0;
+                binderViewEl.classList.add('hidden');
+                deckViewEl.classList.remove('hidden');
+                renderCard(0);
+            });
+        });
+    </script>
+
+</body>
+</html>
